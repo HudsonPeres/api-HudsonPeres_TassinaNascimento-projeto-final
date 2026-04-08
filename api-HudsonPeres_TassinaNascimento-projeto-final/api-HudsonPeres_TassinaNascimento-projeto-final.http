@@ -1,0 +1,6 @@
+@api_HudsonPeres_TassinaNascimento_projeto_final_HostAddress = http://localhost:5144
+
+GET {{api_HudsonPeres_TassinaNascimento_projeto_final_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
