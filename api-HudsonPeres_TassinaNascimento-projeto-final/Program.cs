@@ -2,13 +2,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using StackExchange.Redis;
 using api_HudsonPeres_TassinaNascimento_projeto_final.Data;
+using api_HudsonPeres_TassinaNascimento_projeto_final.Services;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddMemoryCache();
+
 
 // Configuração do Swagger com JWT
 builder.Services.AddSwaggerGen(c =>
@@ -44,7 +48,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configuração JWT
+// JWT
 var jwtKey = builder.Configuration["Jwt:Key"];
 var key = Encoding.ASCII.GetBytes(jwtKey);
 
@@ -69,6 +73,15 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
     };
 });
+
+var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConnectionString));
+
+builder.Services.AddScoped<RedisCacheService>();
+
+builder.Services.AddScoped<HybridCacheService>();
+
 
 var app = builder.Build();
 
