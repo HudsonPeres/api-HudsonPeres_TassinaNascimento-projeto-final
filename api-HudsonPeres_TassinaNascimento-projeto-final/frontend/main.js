@@ -1,4 +1,3 @@
-// Configuração da API (ajuste se a porta for diferente)
 const API_BASE = "http://localhost:5000/api";
 let authToken = null;
 
@@ -19,7 +18,6 @@ const prodStock = document.getElementById("prodStock");
 const modalSave = document.getElementById("modalSave");
 const modalCancel = document.getElementById("modalCancel");
 
-// Helper para chamadas autenticadas
 async function apiFetch(endpoint, options = {}) {
   const headers = {
     "Content-Type": "application/json",
@@ -38,7 +36,6 @@ async function apiFetch(endpoint, options = {}) {
   return await response.json();
 }
 
-// Login
 async function login(username, password) {
   const response = await fetch(`${API_BASE}/Auth/login`, {
     method: "POST",
@@ -52,7 +49,6 @@ async function login(username, password) {
   return data.token;
 }
 
-// Produtos: listar
 async function loadProducts() {
   try {
     const products = await apiFetch("/Products");
@@ -75,10 +71,10 @@ function renderProducts(products) {
         <div class="product-card">
             <div class="product-name">${escapeHtml(p.name)}</div>
             <div class="product-price">€ ${parseFloat(p.price).toFixed(2)}</div>
-            <div class="product-stock">📦 Stock: ${p.stock}</div>
+            <div class="product-stock">Stock: ${p.stock}</div>
             <div class="card-actions">
                 <button class="btn-secondary" onclick="editProduct(${p.id}, '${escapeHtml(p.name)}', ${p.price}, ${p.stock})">✏️ Editar</button>
-                <button class="btn-danger" onclick="deleteProduct(${p.id})">🗑️ Excluir</button>
+                <button class="btn-danger" onclick="deleteProduct(${p.id})">Excluir</button>
             </div>
         </div>
     `,
@@ -86,7 +82,6 @@ function renderProducts(products) {
     .join("");
 }
 
-// Criar/Editar produto
 async function saveProduct() {
   const id = prodId.value;
   const product = {
@@ -96,13 +91,12 @@ async function saveProduct() {
   };
   try {
     if (id) {
-      // Update
       await apiFetch(`/Products/${id}`, {
         method: "PUT",
         body: JSON.stringify({ ...product, id: parseInt(id) }),
       });
     } else {
-      // Create
+      
       await apiFetch("/Products", {
         method: "POST",
         body: JSON.stringify(product),
@@ -147,21 +141,19 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// Consultar inventário (mock)
 async function checkInventory() {
   const sku = prompt("Digite o SKU do produto (ex: 123):", "123");
   if (!sku) return;
   try {
     const data = await apiFetch(`/Inventory/${sku}`);
     alert(
-      `📊 Inventário para SKU ${sku}:\nQuantidade disponível: ${data.quantity}\nSKU: ${data.sku}`,
+      `Inventário para SKU ${sku}:\nQuantidade disponível: ${data.quantity}\nSKU: ${data.sku}`,
     );
   } catch (err) {
     alert(`Erro ao consultar inventário: ${err.message}`);
   }
 }
 
-// Logout
 function logout() {
   authToken = null;
   loginSection.style.display = "block";
@@ -170,7 +162,6 @@ function logout() {
   document.getElementById("loginError").innerText = "";
 }
 
-// Inicialização após login
 async function initAfterLogin(token) {
   authToken = token;
   localStorage.setItem("token", token);
@@ -179,7 +170,6 @@ async function initAfterLogin(token) {
   await loadProducts();
 }
 
-// Eventos
 loginBtn.onclick = async () => {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -205,7 +195,6 @@ window.onclick = (e) => {
   if (e.target === modal) closeModal();
 };
 
-// Verificar token salvo
 const savedToken = localStorage.getItem("token");
 if (savedToken) {
   initAfterLogin(savedToken).catch(() => logout());
