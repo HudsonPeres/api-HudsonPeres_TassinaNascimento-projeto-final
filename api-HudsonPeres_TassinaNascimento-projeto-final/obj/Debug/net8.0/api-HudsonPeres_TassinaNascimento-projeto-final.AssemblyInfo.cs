@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("api-HudsonPeres_TassinaNascimento-projeto-final")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4732bafa4a23aba5bf9459e25e971a25d92829e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e90e7f88d7fbfc51f2ab7f4e3853b37048ab28e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("api-HudsonPeres_TassinaNascimento-projeto-final")]
 [assembly: System.Reflection.AssemblyTitleAttribute("api-HudsonPeres_TassinaNascimento-projeto-final")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
