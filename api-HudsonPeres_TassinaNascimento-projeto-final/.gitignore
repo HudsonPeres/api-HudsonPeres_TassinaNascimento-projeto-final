@@ -1,11 +1,13 @@
 bin/
 obj/
 out/
+publish/
 
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+*.sln.ide
 
 .vscode/
 *.code-workspace
@@ -19,13 +21,17 @@ out/
 *.nupkg
 *.snk
 *.log
+*.cache
+*.tmp
 
 TestResults/
 *.trx
+*.coverage
 
 *.mdf
 *.ldf
 *.db
+*.sqlite
 
 appsettings.Development.json
 appsettings.Production.json
@@ -49,6 +55,6 @@ temp/
 *.tmp
 *.cache
 
+packages/
 *.nuget.props
 *.nuget.targets
-packages/
