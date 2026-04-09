@@ -80,7 +80,11 @@
             },
             "Microsoft.Extensions.Caching.Memory": {
               "target": "Package",
-              "version": "[10.0.5, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Http.Polly": {
+              "target": "Package",
+              "version": "[7.0.20, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -88,7 +92,7 @@
             },
             "Polly": {
               "target": "Package",
-              "version": "[8.6.6, )"
+              "version": "[8.0.0, )"
             },
             "Polly.Extensions.Http": {
               "target": "Package",

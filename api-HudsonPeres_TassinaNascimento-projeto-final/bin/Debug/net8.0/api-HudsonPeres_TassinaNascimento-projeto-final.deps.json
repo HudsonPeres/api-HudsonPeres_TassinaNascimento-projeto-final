@@ -8,16 +8,30 @@
     ".NETCoreApp,Version=v8.0": {
       "api-HudsonPeres_TassinaNascimento-projeto-final/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.1.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.25",
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.0",
+          "Microsoft.Extensions.Caching.Memory": "8.0.0",
+          "Microsoft.Extensions.Http.Polly": "7.0.20",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.0",
+          "Polly": "8.0.0",
+          "Polly.Extensions.Http": "3.0.0",
+          "StackExchange.Redis": "2.12.14",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
           "api-HudsonPeres_TassinaNascimento-projeto-final.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.1.0": {
+        "runtime": {
+          "lib/netstandard2.1/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
+          }
         }
       },
       "Humanizer.Core/2.14.1": {
@@ -372,6 +386,27 @@
           }
         }
       },
+      "Microsoft.Extensions.Http/7.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0"
+        }
+      },
+      "Microsoft.Extensions.Http.Polly/7.0.20": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "7.0.0",
+          "Polly": "8.0.0",
+          "Polly.Extensions.Http": "3.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll": {
+            "assemblyVersion": "7.0.20.0",
+            "fileVersion": "7.0.2024.26907"
+          }
+        }
+      },
       "Microsoft.Extensions.Logging/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
@@ -500,6 +535,60 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "dependencies": {
+          "System.IO.Pipelines": "6.0.3"
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.2.8.1080"
+          }
+        }
+      },
+      "Polly/8.0.0": {
+        "dependencies": {
+          "Polly.Core": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Polly.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.2195"
+          }
+        }
+      },
+      "Polly.Core/8.0.0": {
+        "runtime": {
+          "lib/net6.0/Polly.Core.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.2195"
+          }
+        }
+      },
+      "Polly.Extensions.Http/3.0.0": {
+        "dependencies": {
+          "Polly": "8.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Polly.Extensions.Http.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      },
+      "StackExchange.Redis/2.12.14": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Pipelines.Sockets.Unofficial": "2.2.8",
+          "System.IO.Hashing": "10.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.12.14.58429"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -623,6 +712,14 @@
           }
         }
       },
+      "System.IO.Hashing/10.0.2": {
+        "runtime": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "assemblyVersion": "10.0.0.2",
+            "fileVersion": "10.0.225.61305"
+          }
+        }
+      },
       "System.IO.Pipelines/6.0.3": {},
       "System.Reflection.Metadata/6.0.1": {
         "dependencies": {
@@ -649,6 +746,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5YT3DKllmtkyW68PjURu/V1TOe4MKiByKwsRNVcfYE1S5KuFTeozdmKzyNzolKiQF391OXCaQtINvYT3j1ERzQ==",
+      "path": "bcrypt.net-next/4.1.0",
+      "hashPath": "bcrypt.net-next.4.1.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -804,6 +908,20 @@
       "path": "microsoft.extensions.dependencymodel/8.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Http/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9Pq9f/CvOSz0t9yQa6g1uWpxa2sm13daLFm8EZwy9MaQUjKXWdNUXQwIxwhmba5N83UIqURiPHSNqGK1vfWF2w==",
+      "path": "microsoft.extensions.http/7.0.0",
+      "hashPath": "microsoft.extensions.http.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http.Polly/7.0.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KkgkBZObGj8wOvoDvSkFHXEdiGEqdsnPFqIb2v1GUxeCSCkLbEtcDdokNZ6IFDlXFjAOCxsBJXq/R9+pFBbVdg==",
+      "path": "microsoft.extensions.http.polly/7.0.20",
+      "hashPath": "microsoft.extensions.http.polly.7.0.20.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -902,6 +1020,41 @@
       "path": "npgsql.entityframeworkcore.postgresql/8.0.0",
       "hashPath": "npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512"
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
+    "Polly/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vwIDGI+vUCrufIFi2IpN0EnMyKFRyKHCiJ47yQUvBtAkE76f8xgFjrI7cLmLWv4NwSXZH6DxUG088QmEuHwIFw==",
+      "path": "polly/8.0.0",
+      "hashPath": "polly.8.0.0.nupkg.sha512"
+    },
+    "Polly.Core/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g+8HnRjFTs8Ujz4Si4slrVrEK9M92DjvF75WvNpnF/lbT8M3/xW+tuD2udTiv2KuOsFOsRfOcZ12PddizrtXVA==",
+      "path": "polly.core/8.0.0",
+      "hashPath": "polly.core.8.0.0.nupkg.sha512"
+    },
+    "Polly.Extensions.Http/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-drrG+hB3pYFY7w1c3BD+lSGYvH2oIclH8GRSehgfyP5kjnFnHKQuuBhuHLv+PWyFuaTDyk/vfRpnxOzd11+J8g==",
+      "path": "polly.extensions.http/3.0.0",
+      "hashPath": "polly.extensions.http.3.0.0.nupkg.sha512"
+    },
+    "StackExchange.Redis/2.12.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QiAQg40OP4Owem6/PjIbjEKq2+uIeQYeZ1TCMUnx/QvKugOPxOfC96wjlnBjWHi4Wq9pv9+fDlXGT06XkRZ6Ig==",
+      "path": "stackexchange.redis/2.12.14",
+      "hashPath": "stackexchange.redis.2.12.14.nupkg.sha512"
+    },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",
       "serviceable": true,
@@ -992,6 +1145,13 @@
       "sha512": "sha512-caEe+OpQNYNiyZb+DJpUVROXoVySWBahko2ooNfUcllxa9ZQUM8CgM/mDjP6AoFn6cQU9xMmG+jivXWub8cbGg==",
       "path": "system.identitymodel.tokens.jwt/7.0.3",
       "hashPath": "system.identitymodel.tokens.jwt.7.0.3.nupkg.sha512"
+    },
+    "System.IO.Hashing/10.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AKJknIFi9O3+rGExxTry188JPvUoZAPcCtS2qdqyFhIzsxQ1Ap94BeGDG0VzVEHakhmRxmJtVih6TsHoghIt/g==",
+      "path": "system.io.hashing/10.0.2",
+      "hashPath": "system.io.hashing.10.0.2.nupkg.sha512"
     },
     "System.IO.Pipelines/6.0.3": {
       "type": "package",

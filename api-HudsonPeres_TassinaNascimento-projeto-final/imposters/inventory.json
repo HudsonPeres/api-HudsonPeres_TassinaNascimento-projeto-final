@@ -1,0 +1,55 @@
+{
+  "port": 8000,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "/inventory/123"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "sku": "123",
+              "quantity": 42
+            }
+          }
+        }
+      ]
+    },
+    {
+      "predicates": [
+        {
+          "contains": {
+            "method": "POST",
+            "path": "/payments"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "status": "paid",
+              "transactionId": "mock-txn-123",
+              "amount": 99.99
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
