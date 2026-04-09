@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-projeto
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: projetofinal
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - projeto-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis-projeto
+    ports:
+      - "6379:6379"
+    networks:
+      - projeto-network
+
+  mountebank:
+    image: bbyars/mountebank:latest
+    container_name: mountebank-projeto
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./imposters:/imposters
+    command: --configfile /imposters/inventory.json
+    networks:
+      - projeto-network
+
+  api:
+    build: .
+    container_name: api-projeto
+    ports:
+      - "5000:8080" # mapeia porta 5000 do host para 8080 do container
+    depends_on:
+      - postgres
+      - redis
+      - mountebank
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=projetofinal;Username=postgres;Password=123456
+      - Redis__ConnectionString=redis:6379
+      - Jwt__Key=chave-super-secreta-com-pelo-menos-32-caracteres
+      - Jwt__Issuer=minha-api
+      - Jwt__Audience=meu-frontend
+    networks:
+      - projeto-network
+
+volumes:
+  postgres_data:
+
+networks:
+  projeto-network:
+    driver: bridge

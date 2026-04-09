@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: #f0f0f0;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #a5f0ff, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Login Card */
+.login-card {
+  background: rgba(30, 30, 46, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 12px;
+  border: none;
+  background: #2a2a3a;
+  color: white;
+  font-size: 1rem;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #7c3aed;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-card button:hover {
+  background: #9b5df0;
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Conteúdo principal (só aparece após login) */
+.main-content {
+  display: none;
+}
+
+/* Barra de ferramentas */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: #7c3aed;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #9b5df0;
+}
+
+.btn-danger {
+  background: #dc2626;
+}
+.btn-danger:hover {
+  background: #ef4444;
+}
+
+.btn-secondary {
+  background: #3b3b5c;
+}
+.btn-secondary:hover {
+  background: #52527a;
+}
+
+/* Cards de produto */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.product-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #c4b5fd;
+}
+.product-price {
+  font-size: 1.2rem;
+  color: #a5f0ff;
+}
+.product-stock {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0.5rem 0;
+}
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.card-actions button {
+  flex: 1;
+  padding: 6px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #1e1e2e;
+  border-radius: 24px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 12px;
+  border: none;
+  background: #2a2a3a;
+  color: white;
+}
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.modal-buttons button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: #dc2626;
+  margin-left: auto;
+}
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
+.inventory-link {
+  background: #2d3748;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  display: inline-block;
+}
+.inventory-link:hover {
+  background: #4a5568;
+}
