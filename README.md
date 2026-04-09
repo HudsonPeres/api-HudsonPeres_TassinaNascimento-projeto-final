@@ -1,6 +1,6 @@
 # API Projeto Final – Gestão de Produtos
 
-**Autores:** Hudson Peres & Tassina Nascimento  
+**Autores:** Hudson Peres & Tassia Nascimento  
 **Curso:** Técnico/a Especialista em Tecnologias de Programação de Sistemas de Informação  
 
 ---
