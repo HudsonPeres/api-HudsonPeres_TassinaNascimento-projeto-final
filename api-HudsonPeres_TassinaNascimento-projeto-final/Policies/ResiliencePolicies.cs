@@ -5,7 +5,7 @@ namespace api_HudsonPeres_TassinaNascimento_projeto_final.Policies;
 
 public static class ResiliencePolicies
 {
-    //retry 3 tentativas com backoff exponencial
+    //retry 3 tentativas 
     public static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
     {
         return HttpPolicyExtensions
@@ -13,7 +13,7 @@ public static class ResiliencePolicies
             .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
     }
 
-    //circuit breaker após 5 falhas consecutivas, abre o circuito por 30 segundos
+    //circuit breaker após 5 falhas consecutivas
     public static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
     {
         return HttpPolicyExtensions

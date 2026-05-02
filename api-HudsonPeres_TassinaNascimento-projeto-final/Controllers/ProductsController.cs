@@ -16,7 +16,7 @@ public class ProductsController : ControllerBase
     private readonly HybridCacheService _hybridCache;
     
 
-    // Injeção do HybridCacheService
+    
     public ProductsController(AppDbContext context, HybridCacheService hybridCache)
     {
         _context = context;
@@ -60,7 +60,6 @@ public class ProductsController : ControllerBase
         _context.Products.Add(product);
         await _context.SaveChangesAsync();
 
-        // Invalida o cache da lista
         await _hybridCache.RemoveAsync("products_all");
 
         return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
@@ -76,7 +75,6 @@ public class ProductsController : ControllerBase
         _context.Entry(product).State = EntityState.Modified;
         await _context.SaveChangesAsync();
 
-        // Invalida os caches da lista e do produto específico
         await _hybridCache.RemoveAsync("products_all");
         await _hybridCache.RemoveAsync($"product_{id}");
 
@@ -94,7 +92,6 @@ public class ProductsController : ControllerBase
         _context.Products.Remove(product);
         await _context.SaveChangesAsync();
 
-        // Invalida os caches
         await _hybridCache.RemoveAsync("products_all");
         await _hybridCache.RemoveAsync($"product_{id}");
 

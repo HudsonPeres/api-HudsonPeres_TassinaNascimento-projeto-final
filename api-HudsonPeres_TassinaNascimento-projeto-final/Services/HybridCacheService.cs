@@ -21,7 +21,7 @@ public class HybridCacheService
 
     public async Task<T?> GetOrSetAsync<T>(string key, Func<Task<T>> factory, TimeSpan? memoryExpiry = null, TimeSpan? redisExpiry = null)
     {
-        // 1º nível: cache local (Polly in-memory)
+        // 1º nível: cache local 
         if (_memoryCache.TryGetValue(key, out T? cachedValue) && cachedValue != null)
             return cachedValue;
 
@@ -33,7 +33,7 @@ public class HybridCacheService
             return redisValue;
         }
 
-        // 3º nível: origem (base de dados, etc.)
+        // 3º nível: origem 
         var data = await factory();
 
         if (data != null)

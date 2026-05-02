@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
-builder.Services.AddCors(); // 🔧 Habilita CORS
+builder.Services.AddCors(); 
 
 // Swagger
 builder.Services.AddSwaggerGen(c =>
@@ -73,7 +73,7 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Conn
 builder.Services.AddScoped<RedisCacheService>();
 builder.Services.AddScoped<HybridCacheService>();
 
-// HttpClient resiliente usando a classe ResiliencePolicies
+// HttpClient resiliente 
 builder.Services.AddHttpClient("ResilientClient")
     .AddPolicyHandler(ResiliencePolicies.GetRetryPolicy())
     .AddPolicyHandler(ResiliencePolicies.GetCircuitBreakerPolicy());
@@ -94,7 +94,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ⚠️ Ordem correcta dos middlewares: CORS antes de Auth
+
 app.UseCors(builder => builder
     .AllowAnyOrigin()
     .AllowAnyMethod()

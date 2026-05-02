@@ -4,7 +4,7 @@ WORKDIR /src
 COPY ["api-HudsonPeres_TassinaNascimento-projeto-final.csproj", "."]
 RUN dotnet restore
 
-# Copiar todo o código e compilar
+
 COPY . .
 RUN dotnet publish -c Release -o /app
 
